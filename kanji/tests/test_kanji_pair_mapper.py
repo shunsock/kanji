@@ -7,16 +7,18 @@ class TestKanjiPairMapper:
         # Test with the provided examples
         assert replace_old_to_new("會") == "会"
         assert replace_old_to_new("氣") == "気"
-        
+
         # Test with multiple kanji in a string
         assert replace_old_to_new("會議氣溫") == "会議気温"
-        
+
         # Test with mixed kanji and non-kanji characters
-        assert replace_old_to_new("今日の會議は氣溫について") == "今日の会議は気温について"
-        
+        assert (
+            replace_old_to_new("今日の會議は氣溫について") == "今日の会議は気温について"
+        )
+
         # Test with no replaceable kanji
         assert replace_old_to_new("こんにちは") == "こんにちは"
-        
+
         # Test with an empty string
         assert replace_old_to_new("") == ""
 
@@ -25,16 +27,18 @@ class TestKanjiPairMapper:
         # Test with the provided examples
         assert replace_new_to_old("会") == "會"
         assert replace_new_to_old("気") == "氣"
-        
+
         # Test with multiple kanji in a string
         assert replace_new_to_old("会議気温") == "會議氣溫"
-        
+
         # Test with mixed kanji and non-kanji characters
-        assert replace_new_to_old("今日の会議は気温について") == "今日の會議は氣溫について"
-        
+        assert (
+            replace_new_to_old("今日の会議は気温について") == "今日の會議は氣溫について"
+        )
+
         # Test with no replaceable kanji
         assert replace_new_to_old("こんにちは") == "こんにちは"
-        
+
         # Test with an empty string
         assert replace_new_to_old("") == ""
 
