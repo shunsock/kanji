@@ -1,12 +1,7 @@
-from .kanji_pair_data import KANJI_PAIR_DATA
+from .kanji_pair_data import KANJI_OLD_TO_NEW, KANJI_NEW_TO_OLD
 
-class KanjiMapper:
-    def __init__(self):
-        self.old_to_new = {ord(p.old): p.new for p in KANJI_PAIR_DATA}
-        self.new_to_old = {ord(p.new): p.old for p in KANJI_PAIR_DATA}
+def replace_old_to_new(text: str) -> str:
+    return text.translate(KANJI_OLD_TO_NEW)
 
-    def convert_to_new(self, text: str) -> str:
-        return text.translate(self.old_to_new)
-
-    def convert_to_old(self, text: str) -> str:
-        return text.translate(self.new_to_old)
+def replace_new_to_old(text: str) -> str:
+    return text.translate(KANJI_NEW_TO_OLD)

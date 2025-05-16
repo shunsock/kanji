@@ -1,7 +1,7 @@
 from .kanji_pair import KanjiPair
-from typing import List, Final
+from typing import List, Final, Dict
 
-KANJI_PAIR_LIST: Final[List[List[str]]] = [
+KANJI_PAIR_UNICODE_LIST: Final[List[List[str]]] = [
     ["\u4E9E", "\u4E9C"], # 亞, 亜
 	["\u60E1", "\u60AA"], # 惡, 悪
 	["\u58D3", "\u5727"], # 壓, 圧
@@ -368,7 +368,15 @@ KANJI_PAIR_LIST: Final[List[List[str]]] = [
 	["\u7063", "\u6E7E"], # 灣, 湾
 ]
 
-KANJI_PAIR_DATA: Final[List[KanjiPair]] = [
+KANJI_PAIRS: Final[List[KanjiPair]] = [
     KanjiPair(old=pair[0], new=pair[1])
-    for pair in KANJI_PAIR_LIST
+    for pair in KANJI_PAIR_UNICODE_LIST
 ]
+
+KANJI_OLD_TO_NEW: Final[Dict[int, str]] = {
+	ord(pair.old): pair.new for pair in KANJI_PAIRS
+}
+
+KANJI_NEW_TO_OLD: Final[Dict[int, str]] = {
+	ord(pair.new): pair.old for pair in KANJI_PAIRS
+}
