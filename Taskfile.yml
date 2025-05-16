@@ -25,3 +25,9 @@ tasks:
     cmds:
       - uv run pytest ./tests
 
+  build:
+    dir: kanji
+    desc: "build with uv"
+    cmds:
+      - uv build
+
