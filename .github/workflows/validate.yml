@@ -17,6 +17,10 @@ on:
       - '.github/workflows/**'
   workflow_dispatch: {}
 
+defaults:
+  run:
+    working-directory: ./kanji
+
 jobs:
   validate-python:
     name: Python ${{ matrix.python-version }}
