@@ -17,7 +17,7 @@ tasks:
     dir: kanji
     desc: "lint with mypy"
     cmds:
-      - uv run mypy ./src
+      - uv run mypy --strict kanji
 
   test:
     dir: kanji
