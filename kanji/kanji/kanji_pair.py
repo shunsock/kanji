@@ -6,7 +6,7 @@ class KanjiPair:
     old: str
     new: str
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if len(self.old) != 1 or len(self.new) != 1:
             raise ValueError("Both kanji characters must be single characters.")
         if self.old == self.new:
