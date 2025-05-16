@@ -1,0 +1,27 @@
+version: '3'
+
+tasks:
+  format:
+    dir: kanji
+    desc: "lint with ruff"
+    cmds:
+      - uv run ruff format
+
+  lint:
+    dir: kanji
+    desc: "lint with ruff"
+    cmds:
+      - uv run ruff check --fix
+
+  typecheck:
+    dir: kanji
+    desc: "lint with mypy"
+    cmds:
+      - uv run mypy ./src
+
+  test:
+    dir: kanji
+    desc: "test with pytest"
+    cmds:
+      - uv run pytest ./tests
+
